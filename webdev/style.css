@@ -71,6 +71,7 @@ ul {
 .title {
 	text-transform: uppercase;
 	font-weight: 700;
+	color: #373737;
 }
 
 .your-life {
@@ -151,7 +152,6 @@ ul {
 }
 
 .rappresent__title {
-	color: #373737;
 	font-size: 24px;
 	letter-spacing: 1px;
 	width: 370px;
@@ -161,6 +161,7 @@ ul {
 .text {
 	font-size: 14px;
 	line-height: 20px;
+	color: #373737;
 }
 
 .rappresent__text {
@@ -198,6 +199,10 @@ ul {
 	margin-bottom: 9px;
 	font-weight: 500;
 	letter-spacing: 0.68px;
+}
+
+.our-community__text {
+	color: #4e4e4e;
 }
 
 .slider {
@@ -256,7 +261,6 @@ ul {
 }
 
 .implement__title {
-	color: #373737;
 	font-size: 24px;
 	letter-spacing: 1px;
 	margin-bottom: 20px;
@@ -268,4 +272,80 @@ ul {
 
 .implement__button {
 	width: 180px;
+}
+
+/* Sign Up */
+
+.sign-up {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: url(assets/sign-up-bg.jpg) 100% / cover no-repeat;
+	height: 524px;
+	text-align: center;
+}
+
+.sign-up__title {
+	color: #ffffff;
+	font-size: 24px;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+}
+
+.sign-up__form {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.email-form {
+	width: 382px;
+	outline: none;
+	border: none;
+	padding: 15px 0 15px 24px;
+	font-size: 14px;
+}
+
+.email-form::placeholder {
+	color: #373737;
+	opacity: 0.5;
+}
+
+.sign-up__button {
+	background: url(assets/check-icon.png) center no-repeat;
+	background-color: #00AFDB;
+	position: absolute;
+	right: calc(50% - 203px);
+	width: auto;
+	padding: 23px 33px;
+}
+
+/* Download */
+
+.download {
+	background: #F5F6F7;
+	padding: 120px 0 180px;
+	text-align: center;
+}
+
+.download__title {
+	font-size: 24px;
+	letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.download__text {
+	color: #4e4e4e;
+	width: 480px;
+	margin: 0 auto 30px;
+}
+
+.download__button {
+	width: 186px;
+	height: 46px;
+	padding: 0;
+	margin: 0 14px;
+}
+
+.button__icon {
+	background-color: #009CC2;
 }
