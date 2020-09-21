@@ -178,7 +178,7 @@ ul {
 .our-community {
 	display: flex;
 	align-items: center;
-	padding: 81px 0 140px;
+	padding: 81px 0 118px;
 	background-color: #f5f6f7;
 }
 
@@ -220,6 +220,10 @@ ul {
 	margin-right: 14px;
 }
 
+.slider-controls__arrow-left:hover, .slider-controls__arrow-right:hover {
+	cursor: pointer;
+}
+
 .slider-controls__arrow-right {
 	margin-left: 14px;
 }
@@ -235,4 +239,33 @@ ul {
 
 .slider__item {
 	margin-right: 30px;
+}
+
+/* Implement */
+
+.implement {
+	display: flex;
+	justify-content: space-between;
+	padding: 120px 0 140px;
+	width: 66.3%;
+	margin: 0 auto;
+}
+
+.implement__description {
+	margin-right: 108px;
+}
+
+.implement__title {
+	color: #373737;
+	font-size: 24px;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+}
+
+.implement__text {
+	margin-bottom: 30px;
+}
+
+.implement__button {
+	width: 180px;
 }
