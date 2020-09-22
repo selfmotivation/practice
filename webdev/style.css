@@ -24,14 +24,17 @@ ul {
 }
 
 .logo {
+	margin: 0 auto;
+	width: 44px;
+	height: 44px;
+}
+
+.header__logo {
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
-	margin: 0 auto;
-	width: 44px;
-	height: 45px;
 }
 
 .menu-list {
@@ -339,13 +342,85 @@ ul {
 	margin: 0 auto 30px;
 }
 
+.download-buttons {
+	display: flex;
+	justify-content: center;
+}
+
 .download__button {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	width: 186px;
 	height: 46px;
 	padding: 0;
 	margin: 0 14px;
 }
 
-.button__icon {
+.download__button:hover {
 	background-color: #009CC2;
+}
+
+.button__text {
+	margin-left: 18px;
+}
+
+.button__icon {
+	background: #009CC2 center no-repeat;
+	width: 59px;
+	height: 46px;
+}
+
+.button__icon_apple {
+	background-image: url(assets/dwnld-apple.png);
+}
+
+.button__icon_android {
+	background-image: url(assets/dwnld-android.png);
+}
+
+/* Footer */
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 166px;
+	background-color: #000000;
+	font-size: 14px;
+	padding: 0 160px 19px;
+}
+
+.footer-menu {
+	display: flex;
+	position: relative;
+}
+
+.footer-menu__item {
+	margin-right: 40px;
+}
+
+.footer-menu__item:hover {
+	cursor: pointer;
+}
+
+.footer-menu__item::after {
+	content: '';
+	position: absolute;
+	margin: 4px 20px;
+	width: 1px;
+	height: 8px;
+	background-color: #4E4E4E;
+}
+
+.footer-menu__item:last-child::after {
+	display: none;
+}
+
+.footer__logo {
+	margin: 0 106px 0 0;
+}
+
+.footer__author {
+	color: #818181;
 }
