@@ -103,7 +103,8 @@ ul {
 .button {
 	outline: none;
 	border: none;
-	padding: 15px 47px;
+	width: 184px;
+	height: 46px;
 	background-color: #00AFDB;
 	text-transform: uppercase;
 	font-size: 14px;
@@ -169,12 +170,6 @@ ul {
 
 .rappresent__text {
 	margin-bottom: 30px;
-}
-
-.rappresent__button {
-}
-
-.rappresent__img {
 }
 
 /* Our Community */
@@ -318,8 +313,8 @@ ul {
 	background-color: #00AFDB;
 	position: absolute;
 	right: calc(50% - 203px);
-	width: auto;
-	padding: 23px 33px;
+	width: 66px;
+	height: 100%;
 }
 
 /* Download */
