@@ -194,14 +194,14 @@ function getImage() {
     const imageSrc = base + bgImagesList[index];
     viewBgImage(imageSrc);
     i++;
-    btn.disabled = true;
+    btnWeather.disabled = true;
     setTimeout(function() {
-        btn.disabled = false
+        btnWeather.disabled = false
     }, 1000);
 } 
 
-const btn = document.querySelector('.btn');
-btn.addEventListener('click', getImage);
+const btnWeather = document.querySelector('.btn_weather');
+btnWeather.addEventListener('click', getImage);
 
 // Set Background Images List
 function createBgImagesList() {
@@ -209,16 +209,16 @@ function createBgImagesList() {
     let i = 0;
     while (i < 24) {
         if (i < 6) {
-            dayTime = 'morning/';
+            dayTime = 'night/';
             addImagesToList(dayTime);
         } else if (i < 12) {
-            dayTime = 'day/';
+            dayTime = 'morning/';
             addImagesToList(dayTime);
         } else if (i < 18) {
-            dayTime = 'evening/';
+            dayTime = 'day/';
             addImagesToList(dayTime);
         } else {
-            dayTime = 'night/';
+            dayTime = 'evening/';
             addImagesToList(dayTime);
         }
         i++;
@@ -254,3 +254,16 @@ getName();
 getFocus();
 createBgImagesList();
 setBgGreet();
+
+const blockquote = document.querySelector('blockquote');
+const figcaption = document.querySelector('figcaption');
+const btnQuote = document.querySelector('.btn_quote');
+
+async function getQuote() {
+    const url = `https://api.adviceslip.com/advice`;
+    const res = await fetch(url);
+    const data = await res.json(); 
+    blockquote.textContent = data.slip.advice;
+}
+document.addEventListener('DOMContentLoaded', getQuote);
+btnQuote.addEventListener('click', getQuote);

@@ -9,7 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   height: 100vh;
   background-size: cover;
@@ -27,9 +26,19 @@ body {
   filter: grayscale(1);
   margin: 10px;
   position: absolute;
+  opacity: 0.65;
+}
+
+.btn_weather {
   left: 10px;
   top: 10px;
-  opacity: 0.65;
+}
+
+.btn_quote {
+  bottom: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
 }
 
 .btn:hover {
@@ -44,6 +53,38 @@ body {
 
 .btn:active{
   transform: scale(1.02)
+}
+
+.quote {
+  font: 1.2rem 'Quicksand', sans-serif;
+  margin: 4.2em 10px 3em;
+  background: rgba(0, 0, 0, 0.65) ;
+  border: 2px solid #000;
+  border-radius: 1em;
+  width: 800px;
+  height: 130px;
+  filter: drop-shadow(2px 4px 6px rgba(255,255,255,0.2));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quote figcaption {
+  width: 200px;
+  text-align: right;
+  align-self: flex-end;
+  font-size: 0.7em;
+  margin: 0 0.8em 0.6em;
+  opacity: 0.7;
+}
+
+.quote blockquote {
+  margin: 1em;
+}
+
+.quote figcaption {
+  text-align: right;
 }
 
 .time {
@@ -67,8 +108,34 @@ h2 {
   filter: drop-shadow(2px 2px 1px black);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .time {
     font-size: 6rem;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+  .btn_weather {
+    width: 50px;
+    height: 50px;
+  }
+
+  .quote {
+    width: 300px;
+  }
+
+  .quote blockquote {
+    margin: 0.4em;
+  }
+  
+  .quote figcaption {
+    width: 250px;
+    font-size: 0.7em;
   }
 }
