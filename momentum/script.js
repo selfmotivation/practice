@@ -170,7 +170,7 @@ function setFocus(e) {
 
 // Changing Text inside Focus, Name
 function changeText() {
-        this.textContent = '';
+    this.textContent = '';
 }
 
 // Background Image Change
@@ -238,23 +238,7 @@ function addImagesToList(dayTime) {
     } else addImagesToList(dayTime);
 }
 
-
-
-
-name.addEventListener('keypress', setName);
-name.addEventListener('blur', setName);
-name.addEventListener('click', changeText);
-focus.addEventListener('keypress', setFocus);
-focus.addEventListener('blur', setFocus);
-focus.addEventListener('click', changeText);
-
-// Run
-showTime();
-getName();
-getFocus();
-createBgImagesList();
-setBgGreet();
-
+// Set Quote
 const blockquote = document.querySelector('blockquote');
 const figcaption = document.querySelector('figcaption');
 const btnQuote = document.querySelector('.btn_quote');
@@ -265,5 +249,98 @@ async function getQuote() {
     const data = await res.json(); 
     blockquote.textContent = data.slip.advice;
 }
-document.addEventListener('DOMContentLoaded', getQuote);
+
+// Weather Widget
+const weatherWidget = document.querySelector('.weather-widget');
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const city = document.querySelector('.city');
+const weatherHumidity = document.querySelector('.weather-humidity');
+const weatherWindSpeed = document.querySelector('.weather-wind-speed');
+
+// Get Weather Data From API
+async function getWeather() {  
+    if (localStorage.getItem('city') === null) {
+        city.textContent = '[Enter city]';
+    } else {
+        city.textContent = localStorage.getItem('city');
+    }
+
+    try {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=ru&appid=0b68090578372827c5a76aa5320916c8&units=metric`;
+        const res = await fetch(url);
+        const data = await res.json(); 
+        console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
+
+        weatherIcon.className = 'weather-icon owf';
+        weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+        temperature.textContent = `${data.main.temp}°C`;
+        weatherHumidity.textContent = `Влажность: ${data.main.humidity}%`;
+        weatherWindSpeed.textContent = `Ветер: ${data.wind.speed}м/с`;
+        weatherDescription.textContent = data.weather[0].description;
+    } catch(err) {
+        weatherIcon.className = 'weather-icon owf';
+        temperature.textContent = '';
+        weatherHumidity.textContent = '';
+        weatherWindSpeed.textContent = '';
+        console.log(`No city found. Please enter correct name of a city`);
+        weatherDescription.textContent = `No such city found. Please enter correct name of a city`;
+    }
+
+    
+}
+
+// Set Weather Data in Widget
+function setCity(e) {
+    if (e.type === 'keypress') {
+        if (e.which == 13 || e.keyCode == 13) {
+            // Make sure the field is not empty
+            if (e.target.innerText === '') {
+                if (localStorage.getItem('city') === null) {
+                    city.textContent = '[Enter city]';
+                    localStorage.removeItem('city');
+                }
+            } else {
+                localStorage.setItem('city', e.target.innerText);
+            }
+            getWeather();
+            city.blur();
+        }
+    } else {
+        if (e.target.innerText === '') {
+            if (localStorage.getItem('city') === null) {
+                city.textContent = '[Enter city]';
+            } else {
+                city.textContent = localStorage.getItem('city');
+            }
+        } else {
+            if (city.textContent !== '[Enter city]') {
+                localStorage.setItem('city', e.target.innerText);
+            }
+        }
+        getWeather();
+    }
+}
+
+
+name.addEventListener('keypress', setName);
+name.addEventListener('blur', setName);
+name.addEventListener('click', changeText);
+focus.addEventListener('keypress', setFocus);
+focus.addEventListener('blur', setFocus);
+focus.addEventListener('click', changeText);
 btnQuote.addEventListener('click', getQuote);
+document.addEventListener('DOMContentLoaded', getQuote);
+document.addEventListener('DOMContentLoaded', getWeather);
+city.addEventListener('keypress', setCity);
+city.addEventListener('blur', setCity);
+city.addEventListener('click', changeText);
+
+// Run
+showTime();
+getName();
+getFocus();
+createBgImagesList();
+setBgGreet();
+getWeather();
