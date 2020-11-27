@@ -73,7 +73,7 @@ const Keyboard = {
                         this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
                         this._triggerEvent('oninput');
                     });
-                    
+
                     break;
 
                 case 'caps':
@@ -127,7 +127,7 @@ const Keyboard = {
                         this.properties.value += this.properties.capsLock ? key.toUpperCase() : key.toLowerCase();
                         this._triggerEvent('oninput');
                     });
-                    
+
                     break;
             }
 
@@ -144,7 +144,6 @@ const Keyboard = {
     _triggerEvent(handlerName) {
         if (typeof this.eventHandlers[handlerName] == 'function') {
             this.eventHandlers[handlerName](this.properties.value);
-            
         }
     },
 
@@ -173,9 +172,7 @@ const Keyboard = {
     }
 };
 
-const inputField = document.querySelector('textarea');
-
 window.addEventListener('DOMContentLoaded', function () {
     Keyboard.init();
+    
 });
-
