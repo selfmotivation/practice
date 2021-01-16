@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучение jQuery (3.5.1)</title>
+</head>
+<body>
+    <h2>Селекторы</h2>
+    <ol>
+        <li>Базовые селекторы (#id, tagName, .class)
+            <ul>
+                <li>$('p').css('border', 'solid 3px red'); // По тегу</li>
+                <li>$('.blue').css('border', 'solid 3px red'); // По классу</li>
+                <li>$('#id').css('border', 'solid 3px red'); // По идентификатору</li>
+                <li>$('p.blue').css('border', 'solid 3px red'); // Сочетание селекторов</li>
+            </ul>
+        </li>
+        <li>Селекторы взаимодействия (parent, child, +, ~ и т.д.)
+            <ul>
+                <li>$('body h2').css('border', 'solid 3px red'); // Элемент в элементе</li>
+                <li>$('h2 + p').css('border', 'solid 3px red'); // Следующий p после h2</li>
+                <li>$('h2 ~ p').css('border', 'solid 3px red'); // Все p после h2</li>
+                <li>$('h2').parent().css('border', 'solid 3px red'); // Родитель выбранного элемента</li>
+            </ul>
+        </li>
+        <li>Простые фильтры (:first, :last, :even, :odd, eq и т.д.)
+            <ul>
+                <li>$('p:last').css('border', 'solid 3px red'); // Выбор последнего соответствующего элемента</li>
+                <li>$('p:even').css('border', 'solid 3px red'); // Выбор нечетных соответствующих элементов</li>
+                <li>$('p:eq(0)').css('border', 'solid 3px red'); // Выбор элемента по счету</li>
+            </ul>
+        </li>
+        <li>Фильтры по содержимому (:has, :parent, :empty и т.д.)
+            <ul>
+                <li>$('h2:has(span)').css('border', 'solid 3px red'); // Элемент содержит в себе...</li>
+                <li>$('.box:parent').css('border', 'solid 3px red'); // Элемент является родителем других элементов</li>
+                <li>$('.box:empty').css('border', 'solid 3px red'); // Элемент не содержит других элементов</li>
+            </ul>
+        </li>
+        <li>Фильтры по атрибутам ([name ~= value] и т.д.)
+            <ul>
+                <li>$('a[href="https://google.com"]').css('border', 'solid 3px red'); // Элемент содержит атрибут</li>
+                <li>$('a[href!="https://google.com"]').css('border', 'solid 3px red'); // Элемент содержит любой, но не указанный атрибут</li>
+                <li>$('a[href^="https"]').css('border', 'solid 3px red'); // Атрибут элемента начинается с...</li>
+                <li>$('a[href$=".ru"]').css('border', 'solid 3px red'); // Атрибут элемента заканчивается на...</li>
+                <li>$('a[href*="https"]').css('border', 'solid 3px red'); // Атрибут элемента содержит в себе...</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
